@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymshark Membership Sign-Up</title>
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+
+<body>
+    <script src="Js/script.js" defer></script>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="./index.html" class="logo"><img src="Img/gymSharkLogo-fotor-bg-remover-20240509161259.png"
+                alt="Gymshark" style="width: 250px;"> </a>
+
+        <nav class="navbar">
+            <a href="./index.html">Home</a>
+            <a href="./calorieTool.html">Tools</a>
+            <a href="./index.html#about">Info</a>
+        </nav>
+
+
+        <div>
+            <p style="color: rgba(0, 0, 0, 0);">
+                ---------------------------------------------------------------------------- </p>
+        </div>
+
+    </header>
+
+    <!-- header section ends  -->
+
+
+    <!-- Home section starts -->
+    <section class="home">
+        <div class="homeBox">
+            <div class="ButtonBox"
+                style="background-image:linear-gradient( rgba(92, 68, 68, 0),rgba(0, 0, 0, 0.3));">
+                <div class="calcBox">
+                    <button id="openMembershipModal" class="btn btn1 calorieBtn">Sign Up for Membership</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home section ends -->
+<section style="padding: 0%;">
+    <!-- Membership Modal -->
+    <div id="mainModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="contactContainer">
+
+                <div class="membership">
+
+                    <div class="box">
+
+                        <form id="membershipForm" onsubmit="validateForm()">
+                            
+                            <div id="errorMessages">
+                            <h1>Join us today!</h1>
+                            <p>First Name</p>
+                            <input class="formRow" id="firstName" type="text" name="firstName">
+                            <p>Last Name</p>
+                            <input class="formRow" id="lastName" type="text" name="lastName">
+                            <p>Email Address</p>
+                            <input class="formRow" id="email" type="email" name="email">
+                            <p>Phone Number</p>
+                            <input class="formRow" id="phone" type="tel" name="phone" maxlength="10">
+
+                            <h2>Select a Plan:</h2>
+                            <div id="planBox">
+                                <!-- I opted to use javascript in order to make the plan show! -->
+                            </div>
+                            <!-- <label class="radioContainer">
+                                <input type="radio" name="plan" value="19.99">
+                                <span class="radioCheckmark"></span>
+                                Standard Plan
+                            </label>
+                            <label class="radioContainer">
+                                <input type="radio" name="plan" value="Plus Plan">
+                                <span class="radioCheckmark"></span>
+                                Plus Plan
+                            </label>
+                            <label class="radioContainer">
+                                <input type="radio" name="plan" value="Elite Plan">
+                                <span class="radioCheckmark"></span>
+                                Elite Plan
+                            </label> -->
+
+                            <!-- Submit button -->
+                            <button type="submit" id="subButton">Sign Up</button>
+                        </div>
+                        </form>
+                    </div>
+
+                    <div class="box imgBox">
+                        <img src="Img/ModalSide.jpg" alt="Image Description">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div id="successModal" class="modal">
+        <div class="successBox">
+            <p id="successMsg"></p>
+        </div>
+    </div>
+    <!-- Membership Sign-up Form section ends -->
+
+    <!-- footer starts  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h1>about</h1>
+                <div class="text">
+                    <p>At Gymshark, we’re more than a brand;
+                        we’re a fitness movement. Engineered for performance,
+                        we’re designed for the driven. From the UK to the world,
+                        we’ve got you covered. Elevate your workout with us.
+                        Together, let’s redefine the possible.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <h1>contact info</h1>
+                <div class="address">
+                    <address>
+                        Gymshark London, 165 Regent Street, <br>
+                        London, W1S 3BE <br>
+                        (+1) 800-496-7475 (gymshrk) <br>
+                        corporate@gymshark.com<br>
+                    </address>
+                </div>
+            </div>
+
+            <div class="box">
+                <h1>Quick links</h1>
+                <div class="address">
+                    <a href="#home">Home</a>
+                    <a href="#about">about</a>
+                    <a href="calorieTool.html">Calculator</a>
+                    <a href="membershipForm.html">Membership Form</a>
+                </div>
+            </div>
+            <div class="box">
+                <h1>Location</h1>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d155.19213680797915!2d-0.1400011!3d51.5118549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487605e2ec399985%3A0x98654d3be4848f92!2sGymshark!5e0!3m2!1sen!2sus!4v1715480275021!5m2!1sen!2sus"
+                    width="340" height="250" style="border-radius: 20px;;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    <!-- footer ends  -->
+</body>
+
+</html>
