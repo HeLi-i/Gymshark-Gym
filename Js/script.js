@@ -217,7 +217,7 @@ document.getElementById("membershipForm").addEventListener("submit", function(ev
   successModal.style.display = "flex"; // show success modal
   
   const msg = document.getElementById("successMsg");
-  msg.innerHTML = `Successfully signed up for the <b>${plan.name}</b> at a rate of <b>${plan.price}</b>/month.`
+  msg.innerHTML = `Successfully signed up for the <b>${plan.name}</b> at a rate of <b>${plan.price}</b>/month. Please check your email to complete payment!`
 
   document.getElementById("membershipForm").reset() // clear form after successful submission
 });
