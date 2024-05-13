@@ -129,85 +129,86 @@ plans.forEach((plan, i) => {
 })
 
 // End of radio button code
+let subButton = document.getElementById("subButton");
 
-//Success Modal code
+subButton.addEventListener("click", validateFirstName);
+subButton.addEventListener("click", validateLastName);
+subButton.addEventListener("click", validateEmail);
+subButton.addEventListener("click", validatePhone);
+
+subButton.addEventListener("click", validatePlan);
+
+// Validate first name
+function validateFirstName() {
+  var firstName = document.getElementById("firstName");
+  if(firstName.value.length < 2 || firstName.value.length > 9) {
+    firstName.setCustomValidity("First name must be between 2 and 30 characters");
+  } else {
+    firstName.setCustomValidity("");
+  }
+}
+
+// Validate last name
+function validateLastName() {
+  var lastName = document.getElementById("lastName");
+  if(lastName.value.length < 2 || lastName.value.length > 9) {
+    lastName.setCustomValidity("Last name must be between 2 and 30 characters");
+  } else {
+    lastName.setCustomValidity("");
+  }
+}
+
+// Validate email
+function validateEmail() {
+  var email = document.getElementById("email");
+  if(!/@/.test(email.value) || !/\.com$/.test(email.value)) {
+    email.setCustomValidity("Email must contain '@' and end with '.com'");
+  } else {
+    email.setCustomValidity("");
+  }
+}
+
+// Validate phone number
+function validatePhone() {
+  var phone = document.getElementById("phone");
+  if(phone.value === "") {
+    phone.setCustomValidity("Phone number cannot be left blank");
+  } else if(/[^0-9]/.test(phone.value)) {
+    phone.setCustomValidity("Phone number must not contain any letters");
+  } else if(phone.value.length < 10) {
+    phone.setCustomValidity("Phone number have a valid 10 digits");
+  } else {
+    phone.setCustomValidity("");
+  }
+}
+// Validate plan selection
+function validatePlan() {
+  var radios = document.getElementsByName("plan");
+  var formValid = false;
+  var i = 0;
+  while (!formValid && i < radios.length) {
+    if (radios[i].checked) formValid = true;
+    i++;        
+  }
+
+  if (!formValid) {
+    alert("Must select a plan");
+    return false;
+  }
+  return true;
+}
 
 document.getElementById("membershipForm").addEventListener("submit", function(event) {
   event.preventDefault();
+  // If the form is valid, proceed with the form submission
   const selected = document.querySelector("input[name='plan']:checked")
   const plan = plans[selected.value];
 
-
   modal.style.display = "none"; // hide membership form modal
   successModal.style.display = "flex"; // show success modal
-
+  
   const msg = document.getElementById("successMsg");
-  msg.innerHTML = `Successfully signed up for the ${plan.name} at a rate of ${plan.price}/month.`
+  msg.innerHTML = `Successfully signed up for the <b>${plan.name}</b> at a rate of <b>${plan.price}</b>/month.`
 
   document.getElementById("membershipForm").reset() // clear form after successful submission
-})
-
-//End of success modal code
-
-//calculate bmr code
-
-function calculateBMR() {
-  const age = document.getElementById("age").value;
-  const weight = document.getElementById("weight").value;
-  const heightFeet = document.getElementById("height-feet").value;
-  const heightInches = document.getElementById("height-inches").value;
-  const gender = document.getElementById("gender").value;
-
-  const heightCm = (heightFeet * 30.48) + (heightInches * 2.54);
-  const weightKg = weight * 0.453592;
-
-  let bmr;
-  if (gender === "male") {
-      bmr = 66 + (6.23 * weightKg) + (12.7 * heightCm) - (6.8 * age);
-  } else {
-      bmr = 655 + (4.35 * weightKg) + (4.7 * heightCm) - (4.7 * age);
-  }
-
-  document.getElementById("result").innerHTML = `Your Basal Metabolic Rate (BMR) is: <strong>${bmr.toFixed(2)} calories per day</strong>`;
-}
-
-//end of bmr code
-
-let subButton = document.getElementById("subButton");
-
-function validateForm() {
-  var fullNameInput = document.getElementById("fullName");
-  var phoneInput = document.getElementById("phone");
-  var emailInput = document.getElementById("email");
-
-  // Validate Full Name
-  let isValidName = false;
-  const fullName = fullNameInput.value.trimStart().trimEnd();
-
-  
-
-  if (false) {
-    fullNameInput.setCustomValidity("Full Name must contain two strings separated by a space.");
-  } else {
-    fullNameInput.setCustomValidity("");
-  }
-
-  // Validate Email
-  console.log(emailInput.value.split)
-  if (!emailInput.value.includes("@") ) {
-    emailInput.setCustomValidity("Enter a valid email address.");
-  } else {
-    emailInput.setCustomValidity("");
-  }
-
-  // Validate Phone Number
-  if (phoneInput.value.length != 10) {
-    phoneInput.setCustomValidity("Phone must contain 10 digits.");
-  } else {
-    phoneInput.setCustomValidity("");
-  }
-
-  // Returning true allows form submission if all fields are valid
-  return fullNameInput.validity.valid && emailInput.validity.valid && phoneInput.validity.valid;
-}
-
+});

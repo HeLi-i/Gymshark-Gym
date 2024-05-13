@@ -58,18 +58,32 @@
 
                     <div class="box">
 
-                        <form id="membershipForm" onsubmit="validateForm()">
+                        <form id="membershipForm">
                             
-                            <div id="errorMessages">
+                            <div class="form-field">
                             <h1>Join us today!</h1>
                             <p>First Name</p>
-                            <input class="formRow" id="firstName" type="text" name="firstName">
+                            <input class="formRow" id="firstName" type="text" name="firstName"  minlength="2" maxlength="9">
+                            <small></small>
+                            </div>
+
+                            <div class="form-field">
                             <p>Last Name</p>
-                            <input class="formRow" id="lastName" type="text" name="lastName">
+                            <input class="formRow" id="lastName" type="text" name="lastName" minlength="2" maxlength="9">
+                            <small></small>
+                            </div>
+                            
+                            <div class="form-field">
                             <p>Email Address</p>
                             <input class="formRow" id="email" type="email" name="email">
+                            <small></small>
+                            </div>
+
+                            <div class="form-field">
                             <p>Phone Number</p>
                             <input class="formRow" id="phone" type="tel" name="phone" maxlength="10">
+                            <small></small>
+                            </div>
 
                             <h2>Select a Plan:</h2>
                             <div id="planBox">
@@ -93,7 +107,7 @@
 
                             <!-- Submit button -->
                             <button type="submit" id="subButton">Sign Up</button>
-                        </div>
+
                         </form>
                     </div>
 

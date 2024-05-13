@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <script src="Js/script.js" defer></script>
+    <script src="Js/Calculator.js" defer></script>
 
     <!-- header section starts  -->
 
@@ -38,8 +38,7 @@
 
     <section class="home">
         <div class="homeBox">
-            <div class="ButtonBox"
-                style="background-image:linear-gradient( rgba(92, 68, 68, 0.0),rgba(0, 0, 0, 0.3));">
+            <div class="ButtonBox" style="background-image:linear-gradient( rgba(92, 68, 68, 0.0),rgba(0, 0, 0, 0.3));">
                 <div class="calcBox">
                     <button id="openMembershipModal" class="btn btn1 calorieBtn">Use Our Calorie Calculator</button>
                 </div>
@@ -49,35 +48,47 @@
     <!-- home section ends  -->
 
     <!-- Calorie Modal starts  -->
-<section style="padding: 0%;">
+    <section style="padding: 0%;">
 
-    <div id="mainModal" class="modal">
-        <div class="calc">
-            <h1>BMR Calculator</h1>
-            <label for="age">Age:</label>
-            <input type="number" id="age" min="0" required>
-            <br><br>
-            <label for="weight">Weight (lbs):</label>
-            <input type="number" id="weight" min="0" step="0.1" required>
-            <br><br>
-            <label for="height-feet">Height (feet):</label>
-            <input type="number" id="height-feet" min="0" required>
-            <label for="height-inches">Inches:</label>
-            <input type="number" id="height-inches" min="0" max="11" required>
-            <br><br>
-            <label for="gender">Gender:</label>
-            <select id="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-            <br><br>
-            <button onclick="calculateBMR()">Calculate BMR</button>
-            <br><br>
-            <div id="result"></div>
+        <div id="mainModal" class="modal">
+            <div class="calc">
+                <form id="calculateForm" onsubmit="return validateCalcForm()">
+                    <h1>BMR Calculator</h1>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" >
+                    <div id="ageError"></div>
+
+                    <label for="weight">Weight (lbs):</label>
+                    <input type="number" id="weight"  >
+                    <div id="weightError"></div>
+
+                    <div id="height">
+                        <label for="height-feet">Height (feet):</label>
+                        <input type="number" id="height-feet" >
+                        <div id="heightFeetError"></div>
+
+                        <label for="height-inches">Inches:</label>
+                        <input type="number" id="height-inches" >
+                        <div id="heightInchesError"></div>
+                    </div>
+
+                    <br><br>
+                    <label for="gender">Gender:</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    <div id="errorMessages"></div>
+                    <br><br>
+                    <button onclick="calculateBMR()">Calculate BMR</button>
+                    <br><br>
+                    <div id="result"></div>
+                </form>
+            </div>
         </div>
-    </div>
 
-</section>
+    </section>
 
     <!-- footer starts  -->
 
@@ -108,16 +119,16 @@
                     </address>
                 </div>
             </div>
-            
-        <div class="box">
-            <div class="address">
-                <h1>Quick links</h1>
-                <a href="#home">Home</a>
-                <a href="#about">about</a>
-                <a href="calorieTool.html">Calculator</a>
-                <a href="membershipForm.html">Membership Form</a>
+
+            <div class="box">
+                <div class="address">
+                    <h1>Quick links</h1>
+                    <a href="#home">Home</a>
+                    <a href="#about">about</a>
+                    <a href="calorieTool.html">Calculator</a>
+                    <a href="membershipForm.html">Membership Form</a>
+                </div>
             </div>
-        </div>
 
             <div class="box">
                 <h1>Location</h1>

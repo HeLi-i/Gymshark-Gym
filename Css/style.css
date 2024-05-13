@@ -182,7 +182,7 @@ ul {
 }
 
 .homeBox{
-    background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./../Img/GymBG.png");
+    background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./../img/GymBG.png");
     height: 100vh;
     background-attachment: fixed;
 }
@@ -649,16 +649,32 @@ align-items: center;
 background-color: white;
 width: 300px;
 height: 200px;
+align-content: center;
+text-align: center;
 }
 
 /* - Calc box starts- */
 
+#height{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#height .formRow {
+    display: block;    
+}
+
 .calc{
-background-color: white;
+background-color: whitesmoke;
 width: 450px;
 height: 450px;
 font-family: Arial, sans-serif;
 text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .calc input[type="number"] {
