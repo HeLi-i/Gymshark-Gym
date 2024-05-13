@@ -141,8 +141,11 @@ subButton.addEventListener("click", validatePlan);
 // Validate first name
 function validateFirstName() {
   var firstName = document.getElementById("firstName");
-  if(firstName.value.length < 2 || firstName.value.length > 9) {
-    firstName.setCustomValidity("First name must be between 2 and 30 characters");
+  if(firstName.value === "") {
+    firstName.setCustomValidity("First name cannot be left blank");
+  }
+    else if(firstName.value.length < 2 || firstName.value.length > 9) {
+    firstName.setCustomValidity("First name must be between 2 and 9 letters");
   } else {
     firstName.setCustomValidity("");
   }
@@ -151,8 +154,11 @@ function validateFirstName() {
 // Validate last name
 function validateLastName() {
   var lastName = document.getElementById("lastName");
-  if(lastName.value.length < 2 || lastName.value.length > 9) {
-    lastName.setCustomValidity("Last name must be between 2 and 30 characters");
+  if(lastName.value === "") {
+    lastName.setCustomValidity("Last name cannot be left blank");
+  }
+    else if(lastName.value.length < 2 || lastName.value.length > 9) {
+    lastName.setCustomValidity("Last name must be between 2 and 9 letters");
   } else {
     lastName.setCustomValidity("");
   }
@@ -161,7 +167,10 @@ function validateLastName() {
 // Validate email
 function validateEmail() {
   var email = document.getElementById("email");
-  if(!/@/.test(email.value) || !/\.com$/.test(email.value)) {
+  if(email.value === "") {
+    email.setCustomValidity("email cannot be left blank");
+  }
+    else if(!/@/.test(email.value) || !/\.com$/.test(email.value)) {
     email.setCustomValidity("Email must contain '@' and end with '.com'");
   } else {
     email.setCustomValidity("");
